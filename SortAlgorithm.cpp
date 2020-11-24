@@ -150,7 +150,17 @@ void QuickSort_recur(int* a, int l, int r)
 	QuickSort_recur(a, l, j);
 	QuickSort_recur(a, i, r);
 }
-
+void HeapSort(int* a, int n)
+{
+	//createHeap(a,n);
+}
+void createheap(int* a,int n)
+{
+	for (int i = n/2; i >0; i++)
+	{
+		
+	}
+}
 void _sort(int order,int size,void(alg)(int*, int))
 {
 	int* a = new int[size];
