@@ -6,8 +6,8 @@
 #include "main.h"
 std::ofstream out;
 int DataOrder[4] = { 0,1,2,3 };
-int DataSize[5] = { 3000,10000,30000,100000,300000 };
-void (*Algorithm[7])(int*, int) = { &SelectionSort ,&InsertionSort,&BubbleSort,&MergeSort,&QuickSort/*QuickSort*/ };
+int DataSize[5] = { 5000,10000,30000,100000,300000 };
+void (*Algorithm[7])(int*, int) = { &SelectionSort ,&InsertionSort,&BubbleSort,&MergeSort,&QuickSort,&HeapSort,&binaryInsertionSort};
 using namespace std;
 void printOrder(int Order)
 {
@@ -77,18 +77,17 @@ void writecsvRow()
 void main()
 {
 	out.open("result.csv", ios::out);
-
 	clock_t t;
 	for (int i = 0; i < 4; i++)
 	{
 		printOrder(DataOrder[i]);
 		writeOrder(DataOrder[i]);
 		writecsvRow();
-		for (int j = 0; j < 3; j++)
+		for (int j = 0; j < 5; j++)
 		{
 			cout << "\tDataSize : " << DataSize[j]<<"\n";
 			out << DataSize[j];
-			for (int k = 0; k < 5; k++)
+			for (int k = 0; k < 7; k++)
 			{
 				cout << "\t\tAlgorithm : " << k << endl;
 				_sort(DataOrder[i], DataSize[j], Algorithm[k]);
